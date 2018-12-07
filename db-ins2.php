@@ -6,9 +6,9 @@ $user = 'root';
 
 $password = ''; 
 
-$name = '山田花子'; 
+$name = '中川一郎'; 
 
-$age = 28; 
+$age = 33; 
 
 try{ 
 
