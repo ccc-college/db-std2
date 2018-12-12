@@ -20,9 +20,10 @@ try{
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':name', '%'.$name.'%', PDO::PARAM_STR);
     $stmt->execute();
-    $count = $stmt->rowCount();
+    $count = 0;
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $data[] = $row;
+        $count++;
     }
 
 }catch (PDOException $e){
