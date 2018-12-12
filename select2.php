@@ -12,18 +12,11 @@ try{
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
-    $count = $stmt->rowCount();
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $data[] = $row;
-    }
-    /* echo '処理が終了しました。'; */
-
 }catch (PDOException $e){
     echo($e->getMessage());
     die();
 }
-/*var_dump($count);*/
-/*var_dump($data);*/
+
 ?>
 <html>
 <head>
@@ -48,7 +41,7 @@ table td {
 <h1>会員データ一覧</h1>
 <table border=1>
     <tr><th>id</th><th>名前</th><th>年齢</th><th>メールアドレス</th></tr>
-    <?php foreach($data as $row): ?>
+    <?php foreach($stmt as $row): ?>
     <tr>
     <td><?php echo $row['id'];?></td>
     <td><?php echo $row['name'];?></td>
